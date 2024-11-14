@@ -1,38 +1,413 @@
-.App {
-  text-align: center;
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Electrolize&display=swap');
+
+:root {
+  --color-primary: #FDD140;
+  --color-secondary: #000;
+  --color-accent: #fff;
+
 }
 
-.App-logo {
-  height: 40vmin;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(calc(100vw - 100px), calc(100vh - 100px)) rotate(360deg);
+  }
+}
+
+.oval {
+  position: fixed;
+  width: 20px;
+
+  height: 22px;
+
+  background-color: var(--color-primary);
+
+  border-radius: 50%;
+
   pointer-events: none;
+
+  transition: transform 0.2s;
+  z-index: -1;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
+@keyframes waveRight {
+  100% {
     transform: rotate(360deg);
   }
+}
+
+@keyframes waveLeft {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.wave-1 {
+  animation: waveLeft 40s linear infinite;
+  transform-origin: 13px 25px;
+}
+
+.wave-2 {
+  animation: waveRight 20s linear infinite;
+  transform-origin: 13px 25px;
+
+}
+
+.wave-3 {
+  animation: waveLeft 25s linear infinite;
+  transform-origin: 84px 93px;
+
+}
+
+.wave-4 {
+  animation: waveRight 35s linear infinite;
+  transform-origin: 84px 93px;
+
+}
+
+body {
+  background-color: #E0E0E0;
+}
+
+body * {
+  font-family: sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  color: #595959;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Anta", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #111111 !important;
+
+}
+
+.color-primary {
+  color: var(--color-primary);
+}
+
+.color-secondary {
+  color: var(--color-secondary);
+}
+
+.hero {
+  margin: 10em;
+}
+
+.hero__social {
+  background-color: #fff;
+  padding: 2em 1em;
+  border-radius: 0px 2em 2em 0px;
+  box-shadow: 20px 20px 60px #bebebe,
+    -20px -20px 60px #ffffff;
+  display: inline;
+}
+
+.hero__social a:hover {
+  color: var(--color-secondary);
+}
+
+@media (min-width: 768px) {
+  .hero__aboutme {
+    padding: 0 10em;
+  }
+
+  .certifications__card {
+    width: 200px;
+    height: 250px !important;
+
+  }
+
+}
+
+@media (max-width: 768px) {
+  .certifications__card {
+    width: 375px;
+    text-align: center;
+    height: 250px !important;
+  }
+
+}
+
+
+.nav-item a:hover {
+  color: var(--color-secondary);
+}
+
+.nav-item>a.nav-link.active {
+  color: var(--color-primary) !important;
+}
+
+.navbar-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 2em 2em 0px 0px;
+  background: #e0e0e0;
+  box-shadow: 8px -4px 60px #bebebe,
+    -20px 20px 60px #ffffff;
+  z-index: 99;
+}
+
+.navbar-mobile__item {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+
+}
+
+.navbar-mobile__item:hover {
+  color: var(--color-primary);
+}
+
+.navbar-mobile__item:active {
+  color: var(--color-secondary);
+}
+
+.navbar-mobile__item a {
+  padding: 0.8em;
+}
+
+.navbar-mobile__item a span {
+  display: block;
+  font-size: 0.7em;
+}
+
+
+span.divider {
+  background-color: var(--color-primary);
+  padding: 2px;
+  border-radius: 5em;
+  display: inline-block;
+  width: 15%;
+  margin: 5px;
+
+}
+
+
+ul.list__icon-check {
+  --icon-space: 1.3em;
+  list-style: none;
+  padding: 0;
+}
+
+ul.list__icon-check li {
+  padding-left: var(--icon-space);
+}
+
+ul.list__icon-check li:before {
+  content: "\f00c";
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: calc(var(--icon-space) * -1);
+  width: var(--icon-space);
+  color: var(--color-secondary);
+}
+
+.btn__split {
+
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn__split.btn__split-primary {
+  color: var(--color-primary);
+  background: #fff;
+  border: 1px solid var(--color-primary) !important;
+}
+
+.btn__split.btn__split-secondary {
+  color: var(--color-secondary);
+  background: #fff;
+  border: 1px solid var(--color-secondary) !important;
+}
+
+.btn__split.btn__split-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: width 0.5s ease-out;
+  z-index: -1;
+  background-color: var(--color-primary);
+  box-shadow: 20px 20px 60px var(--color-primary),
+    -20px -20px 60px var(--color-primary);
+}
+
+.btn__split.btn__split-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: width 0.5s ease-out;
+  z-index: -1;
+  background-color: var(--color-secondary);
+  box-shadow: 20px 20px 60px var(--color-secondary),
+    -20px -20px 60px var(--color-secondary),
+}
+
+.btn__split:hover::before {
+  width: 100%;
+}
+
+.btn__split.btn__split-primary:hover {
+  color: #fff !important;
+  box-shadow: 2px 2px 30px var(--color-primary),
+    -2px -2px 10px var(--color-primary),
+}
+
+.btn__split.btn__split-secondary:hover {
+  color: #fff !important;
+  box-shadow: 2px 2px 30px var(--color-secondary),
+    -2px -2px 10px var(--color-secondary);
+}
+
+
+.list-group-item.active {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+
+.scroll_UI::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll_UI::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+
+}
+
+
+.scroll_UI::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+.scroll_UI::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+
+.scroll_UI::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+.scroll_UI::-webkit-scrollbar-track:hover,
+.scroll_UI::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.gallery-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+}
+
+.gallery-item img {
+  width: 100%;
+
+  height: auto;
+
+  object-fit: cover;
+
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.skill-item {
+  position: relative;
+  width: 150px;
+  overflow: hidden;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: scale(1.05);
+}
+
+.skill-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.skill-name {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.skill-description {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-secondary);
+  font-size: 40px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.skill-item:hover .skill-image {
+  opacity: 0.2;
+}
+
+.skill-item:hover .skill-description {
+  opacity: 1;
 }
